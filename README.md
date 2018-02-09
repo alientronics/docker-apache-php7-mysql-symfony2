@@ -31,6 +31,8 @@ Instructions on how to install Docker Compose can be found on the official [page
  
  ```
  http://localhost/
+ user: admin@alientronics.com.br
+ pass: admin
  ```
 
 > The docker installation exposes ports **80** and **3306** so this 2 ports must be free on the host machine
