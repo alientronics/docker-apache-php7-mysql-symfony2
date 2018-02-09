@@ -18,6 +18,11 @@ ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 # Add project files
 RUN git clone https://github.com/alientronics/fleetany-web /var/www/html/application
 
+# Add addition bach script file for configuring Fleetany Application
+COPY .env /var/www/html/application/.env
+COPY run.sh /run.sh
+RUN chmod 0755 /run.sh
+
 WORKDIR /var/www/html/application
 RUN composer install --no-interaction --prefer-source
 EXPOSE 80
