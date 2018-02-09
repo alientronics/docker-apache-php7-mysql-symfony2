@@ -25,12 +25,12 @@ Instructions on how to install Docker Compose can be found on the official [page
  Go to the root directory of project and execute command:
  
  ``` 
-    sudo docker-compose up
+    sudo docker-compose up -d
  ``` 
- - Modify your `hosts` file on he host machine by adding the virtual host:
+ - Now you can access the Fleetany Web at:
  
  ```
- 127.0.0.1 www.example.com
+ http://localhost/
  ```
 
 > The docker installation exposes ports **80** and **3306** so this 2 ports must be free on the host machine

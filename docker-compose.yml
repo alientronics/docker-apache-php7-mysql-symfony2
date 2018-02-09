@@ -3,7 +3,9 @@ services:
   mysql:
     image: mysql
     environment:
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: fleetany
     volumes:
       - db:/var/lib/mysql
   application:
@@ -11,6 +13,8 @@ services:
     ports:
       - '80:80'
     depends_on:
+      - mysql
+    links:
       - mysql
 volumes:
   db:
