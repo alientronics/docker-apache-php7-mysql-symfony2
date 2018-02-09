@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
-# Prepare Symfony Project
-chown -R www-data:www-data app/cache
-chown -R www-data:www-data app/logs
-rm -rf app/log/* app/cache/*
-php app/console doctrine:database:create
-php app/console doctrine:schema:update --force
-php app/console cache:clear --env=prod
-chmod 777 -R app/cache app/logs
+# Prepare Fleetany Project
+php -e artisan vendor:publish --provider=Kodeine\\Acl\\AclServiceProvider; \
+php -e artisan vendor:publish --provider=Alientronics\\FleetanyWebGeofence\\FleetanyWebGeofenceServiceProvider; \
+php -e artisan vendor:publish --provider=Alientronics\\FleetanyWebDriver\\FleetanyWebDriverServiceProvider; \
+php -e artisan vendor:publish --provider=Alientronics\\FleetanyWebAttributes\\FleetanyWebAttributesServiceProvider; \
+php -e artisan vendor:publish --provider=Alientronics\\FleetanyWebAdmin\\FleetanyWebAdminServiceProvider; \
+php -e artisan vendor:publish --provider=Alientronics\\FleetanyWebReports\\FleetanyWebReportsServiceProvider; \
+php -e artisan clear-compiled; \
+php -e artisan optimize; 
+
+chmod 777 -R storage
 
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND

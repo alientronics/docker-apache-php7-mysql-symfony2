@@ -16,11 +16,7 @@ RUN docker-php-ext-install pdo pdo_mysql
 ADD 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Add project files
-COPY application/ /var/www/html/application
-
-# Add addition bach script file for configuring Symfony Application
-COPY run.sh /run.sh
-RUN chmod 0755 /run.sh
+RUN git clone https://github.com/alientronics/fleetany-web /var/www/html/application
 
 WORKDIR /var/www/html/application
 RUN composer install --no-interaction --prefer-source

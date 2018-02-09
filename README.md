@@ -1,4 +1,4 @@
-A Docker image based on Ubuntu, running PHP7 on Apache2 using a MySQL Database for a Symfony2 Web Application.
+A Docker image based on Ubuntu, running PHP7 on Apache2 using a MySQL Database for a Fleetany Web Application.
 
 ### Technical requirements  
  - Install Docker
@@ -17,20 +17,15 @@ Instructions on how to install Docker Compose can be found on the official [page
  On the host machine clone the GitHub(`git` is required to be installed) repository by executing:
  
  ```
-  git clone https://github.com/redjanym/docker-apache-php7-mysql-symfony2.git
+  git clone https://github.com/alientronics/fleetany-docker
  ```
- 
- - Add the Symfony2 Application
- 
- On the **application** directory setup the Symfony2 App. Do not install the Vendor packages, composer takes care of it during the building process.
- 
  
  - Run Docker
  
  Go to the root directory of project and execute command:
  
  ``` 
-    docker-compose up
+    sudo docker-compose up
  ``` 
  - Modify your `hosts` file on he host machine by adding the virtual host:
  
