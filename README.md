@@ -27,6 +27,16 @@ Instructions on how to install Docker Compose can be found on the official [page
  ``` 
     sudo docker-compose up -d
  ``` 
+
+- Configure Database
+ 
+ Run artisan migrate at application container to configurate the database.
+ It could take a while. Make sure Mysql container is runninig.
+ 
+ ``` 
+    sudo docker-compose exec application php artisan migrate:refresh --seed --force
+ ``` 
+
  - Now you can access the Fleetany Web at:
  
  ```
@@ -36,6 +46,13 @@ Instructions on how to install Docker Compose can be found on the official [page
  ```
 
 > The docker installation exposes ports **80** and **3306** so this 2 ports must be free on the host machine
+
+
+ - Something wrong? Clean up and try again:
+```
+sudo docker-compose stop
+sudo docker system prune -a
+```
 
 ### Installed packages
 
